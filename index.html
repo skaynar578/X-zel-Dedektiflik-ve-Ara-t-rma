@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="tr">
 <head>
@@ -1149,13 +1150,11 @@ footer strong{
 
 /* =========================================
    ZİYARETÇİ SAYACI
+   HER YENİLEMEDE +1
    ========================================= */
 
 const VISITOR_KEY =
     "x_arastirma_ozel_dedektiflik_2026_ziyaretci_7f3a9";
-
-const VISITOR_STORAGE =
-    "x_arastirma_last_visit";
 
 async function ziyaretciSay(){
 
@@ -1164,51 +1163,17 @@ async function ziyaretciSay(){
 
     try{
 
-        const simdi = Date.now();
-
-        const sonZiyaret =
-            localStorage.getItem(VISITOR_STORAGE);
-
-        let say = false;
-
-        if(!sonZiyaret){
-
-            say = true;
-
-        }else{
-
-            const fark =
-                simdi - Number(sonZiyaret);
-
-            const birGun =
-                24 * 60 * 60 * 1000;
-
-            if(fark >= birGun){
-                say = true;
-            }
-
-        }
-
-        let url;
-
-        if(say){
-
-            url =
-                "https://countapi.mileshilliard.com/api/v1/hit/" +
-                VISITOR_KEY;
-
-        }else{
-
-            url =
-                "https://countapi.mileshilliard.com/api/v1/get/" +
-                VISITOR_KEY;
-
-        }
-
         const cevap =
-            await fetch(url,{
-                cache:"no-store"
-            });
+            await fetch(
+                "https://countapi.mileshilliard.com/api/v1/hit/" +
+                VISITOR_KEY +
+                "?t=" +
+                Date.now(),
+                {
+                    method:"GET",
+                    cache:"no-store"
+                }
+            );
 
         if(!cevap.ok){
             throw new Error("Sayaç bağlantısı başarısız.");
@@ -1226,15 +1191,6 @@ async function ziyaretciSay(){
 
         sayac.textContent =
             toplam.toLocaleString("tr-TR");
-
-        if(say){
-
-            localStorage.setItem(
-                VISITOR_STORAGE,
-                String(simdi)
-            );
-
-        }
 
     }catch(hata){
 
@@ -1306,3 +1262,4 @@ function gonder(event){
 
 </body>
 </html>
+```
