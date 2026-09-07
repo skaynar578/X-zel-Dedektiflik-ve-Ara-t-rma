@@ -203,36 +203,51 @@ nav a:hover{
     background:#181818;
 }
 
-/* ZIYARETCI SAYACI */
+/* SAĞ ALT ZİYARETÇİ SAYACI */
 
-.visitor-box{
-    max-width:500px;
-    margin:35px auto 0;
-    padding:18px 25px;
-    background:rgba(16,16,16,.95);
+.visitor-mini{
+    position:fixed;
+    right:18px;
+    bottom:18px;
+    z-index:9999;
+
+    display:flex;
+    align-items:center;
+    gap:6px;
+
+    padding:8px 12px;
+
+    background:rgba(10,10,10,.95);
     border:1px solid var(--border);
-    border-radius:14px;
-    box-shadow:0 0 25px rgba(212,175,55,.08);
-}
+    border-radius:20px;
 
-.visitor-title{
-    color:#aaa;
-    font-size:13px;
-    letter-spacing:1px;
-    margin-bottom:4px;
-}
-
-.visitor-number{
     color:var(--gold);
-    font-size:32px;
-    font-weight:900;
-    letter-spacing:2px;
+    font-size:12px;
+    font-weight:bold;
+
+    box-shadow:0 5px 20px rgba(0,0,0,.4);
+    backdrop-filter:blur(8px);
 }
 
-.visitor-sub{
-    color:#777;
-    font-size:11px;
-    margin-top:3px;
+.visitor-mini #visitorCount{
+    color:#fff;
+    font-weight:900;
+}
+
+.visitor-mini .visitor-label{
+    color:#888;
+    font-weight:500;
+}
+
+@media(max-width:600px){
+
+    .visitor-mini{
+        right:10px;
+        bottom:10px;
+        padding:7px 10px;
+        font-size:11px;
+    }
+
 }
 
 /* SECTIONS */
@@ -598,10 +613,6 @@ footer strong{
     .section-title h2{
         font-size:29px;
     }
-
-    .visitor-number{
-        font-size:27px;
-    }
 }
 </style>
 </head>
@@ -613,6 +624,7 @@ footer strong{
 
         <a href="#" class="logo">
             <div class="logo-mark">X?</div>
+
             <div class="logo-text">
                 X? ARAŞTIRMA
                 <span>ÖZEL DEDEKTİFLİK</span>
@@ -649,26 +661,13 @@ footer strong{
         </p>
 
         <div class="buttons">
-            <a href="#basvuru" class="btn btn-gold">Başvuru Oluştur</a>
-            <a href="#hizmetler" class="btn btn-dark">Hizmetleri İncele</a>
-        </div>
+            <a href="#basvuru" class="btn btn-gold">
+                Başvuru Oluştur
+            </a>
 
-        <!-- ZIYARETCI SAYACI -->
-
-        <div class="visitor-box">
-
-            <div class="visitor-title">
-                👁️ SİTE ZİYARETÇİLERİ
-            </div>
-
-            <div class="visitor-number" id="visitorCount">
-                Yükleniyor...
-            </div>
-
-            <div class="visitor-sub">
-                Toplam ziyaret
-            </div>
-
+            <a href="#hizmetler" class="btn btn-dark">
+                Hizmetleri İncele
+            </a>
         </div>
 
     </div>
@@ -691,7 +690,9 @@ footer strong{
 
         <div class="card">
             <div class="icon">🕵️</div>
+
             <h3>Eş / Partner Şüphesi</h3>
+
             <p>
                 Şüphe ve endişelerin hukuka uygun araştırma yöntemleri
                 çerçevesinde değerlendirilmesi.
@@ -700,7 +701,9 @@ footer strong{
 
         <div class="card">
             <div class="icon">💍</div>
+
             <h3>Evlilik Öncesi Araştırma</h3>
+
             <p>
                 Evlilik öncesinde karar vermenize yardımcı olabilecek
                 yasal araştırma ve danışmanlık hizmetleri.
@@ -709,7 +712,9 @@ footer strong{
 
         <div class="card">
             <div class="icon">⚖️</div>
+
             <h3>Dava Araştırmaları</h3>
+
             <p>
                 Hukuka uygun açık kaynak, olay ve belge araştırması
                 ile raporlama desteği.
@@ -718,7 +723,9 @@ footer strong{
 
         <div class="card">
             <div class="icon">👨‍👩‍👧</div>
+
             <h3>Çocuk Güvenliği</h3>
+
             <p>
                 Çocuğun çevresi ve güvenliği hakkında hukuka uygun
                 risk değerlendirmesi ve araştırma desteği.
@@ -727,7 +734,9 @@ footer strong{
 
         <div class="card">
             <div class="icon">🔎</div>
+
             <h3>Kayıp / Kişi Araştırması</h3>
+
             <p>
                 Kişi araştırmalarında hukuka uygun kaynaklar üzerinden
                 bilgi toplama ve araştırma desteği.
@@ -736,7 +745,9 @@ footer strong{
 
         <div class="card">
             <div class="icon">📁</div>
+
             <h3>Özel Dosya</h3>
+
             <p>
                 Standart hizmetlerin dışında kalan araştırmalar için
                 ön görüşme ve özel teklif.
@@ -764,6 +775,7 @@ footer strong{
     <div class="price-grid">
 
         <div class="price-card">
+
             <h3>🕵️ Eş / Partner Şüphesi</h3>
 
             <div class="price">
@@ -780,10 +792,12 @@ footer strong{
                 <strong>3 Gün</strong>
                 <span>30.000 TL</span>
             </div>
+
         </div>
 
 
         <div class="price-card">
+
             <h3>💍 Evlilik Öncesi</h3>
 
             <div class="price">
@@ -800,10 +814,12 @@ footer strong{
                 <strong>3 Gün</strong>
                 <span>20.000 TL</span>
             </div>
+
         </div>
 
 
         <div class="price-card">
+
             <h3>⚖️ Dava Araştırmaları</h3>
 
             <div class="price">
@@ -820,10 +836,12 @@ footer strong{
                 <strong>3 Gün</strong>
                 <span>30.000 TL</span>
             </div>
+
         </div>
 
 
         <div class="price-card">
+
             <h3>👨‍👩‍👧 Çocuk Güvenliği</h3>
 
             <div class="price">
@@ -840,10 +858,12 @@ footer strong{
                 <strong>3 Gün</strong>
                 <span>25.000 TL</span>
             </div>
+
         </div>
 
 
         <div class="price-card">
+
             <h3>🔎 Kayıp / Kişi</h3>
 
             <div class="price">
@@ -860,10 +880,12 @@ footer strong{
                 <strong>3 Gün</strong>
                 <span>20.000 TL</span>
             </div>
+
         </div>
 
 
         <div class="price-card">
+
             <h3>📁 Özel Dosya</h3>
 
             <div style="padding-top:15px;color:#aaa;">
@@ -894,27 +916,51 @@ footer strong{
     <div class="process">
 
         <div class="step">
+
             <div class="number">1</div>
+
             <h3>Başvuru</h3>
-            <p>Talebinizi ve araştırma konusunu bize iletirsiniz.</p>
+
+            <p>
+                Talebinizi ve araştırma konusunu bize iletirsiniz.
+            </p>
+
         </div>
 
         <div class="step">
+
             <div class="number">2</div>
+
             <h3>Ön Görüşme</h3>
-            <p>Dosyanın kapsamı ve uygulanabilecek yöntemler değerlendirilir.</p>
+
+            <p>
+                Dosyanın kapsamı ve uygulanabilecek yöntemler değerlendirilir.
+            </p>
+
         </div>
 
         <div class="step">
+
             <div class="number">3</div>
+
             <h3>Araştırma</h3>
-            <p>Yasal sınırlar içinde araştırma ve bilgi toplama gerçekleştirilir.</p>
+
+            <p>
+                Yasal sınırlar içinde araştırma ve bilgi toplama gerçekleştirilir.
+            </p>
+
         </div>
 
         <div class="step">
+
             <div class="number">4</div>
+
             <h3>Raporlama</h3>
-            <p>Elde edilen hukuka uygun bulgular düzenli şekilde raporlanır.</p>
+
+            <p>
+                Elde edilen hukuka uygun bulgular düzenli şekilde raporlanır.
+            </p>
+
         </div>
 
     </div>
@@ -938,34 +984,46 @@ footer strong{
     <div class="why">
 
         <div class="why-box">
+
             <h3>🔒 Gizlilik</h3>
+
             <p>
                 Başvuru ve dosya bilgilerinin gizliliğine önem verilir.
             </p>
+
         </div>
 
         <div class="why-box">
+
             <h3>⚖️ Hukuka Uygunluk</h3>
+
             <p>
                 Araştırmalar yalnızca hukuka uygun yöntemler ve
                 izin verilen kaynaklar çerçevesinde yürütülür.
             </p>
+
         </div>
 
         <div class="why-box">
+
             <h3>📋 Raporlama</h3>
+
             <p>
                 Uygun dosyalarda araştırma süreci ve elde edilen
                 hukuka uygun bilgiler raporlanabilir.
             </p>
+
         </div>
 
         <div class="why-box">
+
             <h3>🎯 Şeffaf Süreç</h3>
+
             <p>
                 Hizmet kapsamı ve fiyatlandırma ön görüşmede açıkça
                 değerlendirilir.
             </p>
+
         </div>
 
     </div>
@@ -982,8 +1040,13 @@ footer strong{
 <div class="container">
 
     <div class="section-title">
+
         <h2>Başvuru Formu</h2>
-        <p>Talebinizi kısaca anlatın, ön görüşme için sizinle iletişime geçelim.</p>
+
+        <p>
+            Talebinizi kısaca anlatın, ön görüşme için sizinle iletişime geçelim.
+        </p>
+
     </div>
 
     <div class="form-box">
@@ -993,35 +1056,59 @@ footer strong{
             <div class="form-row">
 
                 <div>
+
                     <label>Ad Soyad</label>
+
                     <input type="text" id="ad" required>
+
                 </div>
 
                 <div>
+
                     <label>Telefon</label>
+
                     <input type="tel" id="telefon" required>
+
                 </div>
 
             </div>
 
+
             <label>Hizmet Türü</label>
 
             <select id="hizmet" required>
+
                 <option value="">Seçiniz</option>
+
                 <option>Eş / Partner Şüphesi</option>
+
                 <option>Evlilik Öncesi Araştırma</option>
+
                 <option>Dava Araştırmaları</option>
+
                 <option>Çocuk Güvenliği ve Çevre Araştırması</option>
+
                 <option>Kayıp Kişi / Kişi Araştırması</option>
+
                 <option>Özel Dosya</option>
+
             </select>
+
 
             <label>Talebiniz</label>
 
-            <textarea id="mesaj" required
-                placeholder="Araştırma talebinizi mümkün olduğunca genel şekilde açıklayın. Gereksiz kişisel veya hassas bilgi paylaşmayın."></textarea>
+            <textarea
+                id="mesaj"
+                required
+                placeholder="Araştırma talebinizi mümkün olduğunca genel şekilde açıklayın. Gereksiz kişisel veya hassas bilgi paylaşmayın."
+            ></textarea>
 
-            <button type="submit" class="btn btn-gold" style="width:100%;">
+
+            <button
+                type="submit"
+                class="btn btn-gold"
+                style="width:100%;"
+            >
                 E-posta Üzerinden Başvur
             </button>
 
@@ -1041,21 +1128,34 @@ footer strong{
 <div class="container">
 
     <div class="section-title">
+
         <h2>Yasal Hizmet Sınırları</h2>
-        <p>Güvenilir hizmet için hukuka uygunluk temel prensibimizdir.</p>
+
+        <p>
+            Güvenilir hizmet için hukuka uygunluk temel prensibimizdir.
+        </p>
+
     </div>
+
 
     <div class="legal-box">
 
         <h3>Sunulmayan İşlemler</h3>
 
         <ul>
+
             <li>Yetkisiz hesap veya cihaz erişimi</li>
+
             <li>Şifre kırma veya hesap ele geçirme</li>
+
             <li>Yetkisiz gizli dinleme veya kayıt</li>
+
             <li>Özel alana izinsiz giriş</li>
+
             <li>Yasa dışı yollarla kişisel veri temini</li>
+
             <li>Kolluk kuvveti veya kamu görevlisi gibi davranma</li>
+
         </ul>
 
 
@@ -1079,9 +1179,12 @@ footer strong{
 
 
         <div class="warning">
+
             <strong>Önemli:</strong>
+
             X? hizmet kapsamı her dosya için ön görüşmede değerlendirilir.
             Hukuka aykırı olduğu değerlendirilen talepler kabul edilmez.
+
         </div>
 
     </div>
@@ -1098,20 +1201,30 @@ footer strong{
 <div class="container">
 
     <div class="section-title">
+
         <h2>İletişim</h2>
-        <p>Ön görüşme için e-posta üzerinden bizimle iletişime geçebilirsiniz.</p>
+
+        <p>
+            Ön görüşme için e-posta üzerinden bizimle iletişime geçebilirsiniz.
+        </p>
+
     </div>
+
 
     <div class="contact-grid">
 
-        <a class="contact-card"
-           href="mailto:skaynar578@gmail.com">
+        <a
+            class="contact-card"
+            href="mailto:skaynar578@gmail.com"
+        >
 
             <div class="big">📧</div>
 
             <h3>E-posta</h3>
 
-            <p>skaynar578@gmail.com</p>
+            <p>
+                skaynar578@gmail.com
+            </p>
 
         </a>
 
@@ -1146,15 +1259,33 @@ footer strong{
 </footer>
 
 
+<!-- =========================================
+     SAĞ ALT KÖŞE ZİYARETÇİ SAYACI
+     ========================================= -->
+
+<div class="visitor-mini">
+
+    <span>👁️</span>
+
+    <span id="visitorCount">220</span>
+
+    <span class="visitor-label">
+        ziyaret
+    </span>
+
+</div>
+
+
 <script>
 
 /* =========================================
    ZİYARETÇİ SAYACI
+   BAŞLANGIÇ: 220
    HER YENİLEMEDE +1
    ========================================= */
 
 const VISITOR_KEY =
-    "x_arastirma_ozel_dedektiflik_2026_ziyaretci_7f3a9";
+    "x_arastirma_ziyaretci_220_baslangic_91k7";
 
 async function ziyaretciSay(){
 
@@ -1176,18 +1307,34 @@ async function ziyaretciSay(){
             );
 
         if(!cevap.ok){
-            throw new Error("Sayaç bağlantısı başarısız.");
+            throw new Error(
+                "Sayaç bağlantısı başarısız."
+            );
         }
 
         const veri =
             await cevap.json();
 
-        const toplam =
+        const apiSayisi =
             Number(veri.value);
 
-        if(!Number.isFinite(toplam)){
-            throw new Error("Sayaç verisi geçersiz.");
+        if(!Number.isFinite(apiSayisi)){
+            throw new Error(
+                "Sayaç verisi geçersiz."
+            );
         }
+
+        /*
+            API ilk istekte 1 döndürür.
+
+            1  + 219 = 220
+            2  + 219 = 221
+            3  + 219 = 222
+            4  + 219 = 223
+        */
+
+        const toplam =
+            apiSayisi + 219;
 
         sayac.textContent =
             toplam.toLocaleString("tr-TR");
@@ -1199,8 +1346,14 @@ async function ziyaretciSay(){
             hata
         );
 
+        /*
+            Sayaç bağlantısı geçici olarak
+            çalışmazsa ekranda en azından
+            başlangıç değeri gösterilir.
+        */
+
         sayac.textContent =
-            "—";
+            "220";
 
     }
 
@@ -1238,15 +1391,22 @@ function gonder(event){
     const govde =
         encodeURIComponent(
             "X? Araştırma Başvurusu\n\n" +
+
             "Ad Soyad: " +
             ad +
+
             "\n" +
+
             "Telefon: " +
             telefon +
+
             "\n" +
+
             "Hizmet: " +
             hizmet +
+
             "\n\n" +
+
             "Talep:\n" +
             mesaj
         );
