@@ -1,4 +1,3 @@
-```html
 <!DOCTYPE html>
 <html lang="tr">
 <head>
@@ -1279,13 +1278,15 @@ footer strong{
 <script>
 
 /* =========================================
-   ZİYARETÇİ SAYACI
+   X? ARAŞTIRMA ZİYARETÇİ SAYACI
    BAŞLANGIÇ: 220
-   HER YENİLEMEDE +1
    ========================================= */
 
+const VISITOR_NAMESPACE =
+    "x-arastirma-91k7";
+
 const VISITOR_KEY =
-    "x_arastirma_ziyaretci_220_baslangic_91k7";
+    "ziyaretci-sayaci";
 
 async function ziyaretciSay(){
 
@@ -1296,7 +1297,9 @@ async function ziyaretciSay(){
 
         const cevap =
             await fetch(
-                "https://countapi.mileshilliard.com/api/v1/hit/" +
+                "https://abacus.jasoncameron.dev/hit/" +
+                VISITOR_NAMESPACE +
+                "/" +
                 VISITOR_KEY +
                 "?t=" +
                 Date.now(),
@@ -1308,7 +1311,8 @@ async function ziyaretciSay(){
 
         if(!cevap.ok){
             throw new Error(
-                "Sayaç bağlantısı başarısız."
+                "Sayaç bağlantısı başarısız: " +
+                cevap.status
             );
         }
 
@@ -1327,10 +1331,10 @@ async function ziyaretciSay(){
         /*
             API ilk istekte 1 döndürür.
 
-            1  + 219 = 220
-            2  + 219 = 221
-            3  + 219 = 222
-            4  + 219 = 223
+            1 + 219 = 220
+            2 + 219 = 221
+            3 + 219 = 222
+            4 + 219 = 223
         */
 
         const toplam =
@@ -1345,12 +1349,6 @@ async function ziyaretciSay(){
             "Ziyaretçi sayacı:",
             hata
         );
-
-        /*
-            Sayaç bağlantısı geçici olarak
-            çalışmazsa ekranda en azından
-            başlangıç değeri gösterilir.
-        */
 
         sayac.textContent =
             "220";
@@ -1422,4 +1420,3 @@ function gonder(event){
 
 </body>
 </html>
-```
