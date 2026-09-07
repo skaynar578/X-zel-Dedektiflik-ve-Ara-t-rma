@@ -1,1 +1,1163 @@
 
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>X? Özel Dedektiflik ve Araştırma</title>
+<meta name="description" content="X? Özel Dedektiflik ve Araştırma - Soruların Ardındaki Gerçek. Yasal araştırma ve danışmanlık hizmetleri.">
+
+<style>
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:Arial, Helvetica, sans-serif;
+    background:#070707;
+    color:#f5f5f5;
+    line-height:1.6;
+}
+
+:root{
+    --gold:#d4af37;
+    --gold2:#f1d36a;
+    --dark:#070707;
+    --card:#111111;
+    --border:rgba(212,175,55,.25);
+}
+
+a{
+    color:inherit;
+    text-decoration:none;
+}
+
+/* HEADER */
+
+header{
+    position:sticky;
+    top:0;
+    z-index:1000;
+    background:rgba(5,5,5,.96);
+    border-bottom:1px solid var(--border);
+    backdrop-filter:blur(10px);
+}
+
+.nav{
+    max-width:1200px;
+    margin:auto;
+    padding:15px 20px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:20px;
+}
+
+.logo{
+    display:flex;
+    align-items:center;
+    gap:12px;
+}
+
+.logo-mark{
+    width:52px;
+    height:52px;
+    border:2px solid var(--gold);
+    border-radius:14px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:var(--gold);
+    font-size:29px;
+    font-weight:900;
+    box-shadow:0 0 20px rgba(212,175,55,.18);
+}
+
+.logo-text{
+    font-size:18px;
+    font-weight:800;
+    letter-spacing:1px;
+}
+
+.logo-text span{
+    display:block;
+    color:var(--gold);
+    font-size:11px;
+    letter-spacing:2px;
+    margin-top:2px;
+}
+
+nav{
+    display:flex;
+    gap:20px;
+}
+
+nav a{
+    font-size:14px;
+    color:#ddd;
+    transition:.3s;
+}
+
+nav a:hover{
+    color:var(--gold);
+}
+
+/* HERO */
+
+.hero{
+    min-height:650px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    padding:90px 20px;
+    background:
+        radial-gradient(circle at center, rgba(212,175,55,.13), transparent 35%),
+        linear-gradient(180deg,#080808,#0b0b0b);
+}
+
+.hero-content{
+    max-width:900px;
+}
+
+.hero-logo{
+    width:130px;
+    height:130px;
+    margin:0 auto 25px;
+    border:3px solid var(--gold);
+    border-radius:32px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:var(--gold);
+    font-size:72px;
+    font-weight:900;
+    box-shadow:
+        0 0 30px rgba(212,175,55,.25),
+        inset 0 0 30px rgba(212,175,55,.05);
+}
+
+.hero h1{
+    font-size:clamp(42px,8vw,82px);
+    letter-spacing:3px;
+    margin-bottom:10px;
+}
+
+.hero h1 span{
+    color:var(--gold);
+}
+
+.hero h2{
+    color:#ddd;
+    font-size:clamp(20px,3vw,30px);
+    margin-bottom:20px;
+}
+
+.hero p{
+    max-width:700px;
+    margin:auto;
+    color:#aaa;
+    font-size:17px;
+}
+
+.buttons{
+    margin-top:35px;
+    display:flex;
+    justify-content:center;
+    gap:14px;
+    flex-wrap:wrap;
+}
+
+.btn{
+    padding:14px 24px;
+    border-radius:8px;
+    font-weight:bold;
+    border:1px solid var(--gold);
+    transition:.3s;
+    cursor:pointer;
+}
+
+.btn-gold{
+    background:var(--gold);
+    color:#050505;
+}
+
+.btn-gold:hover{
+    background:var(--gold2);
+    transform:translateY(-2px);
+}
+
+.btn-dark{
+    background:#111;
+    color:var(--gold);
+}
+
+.btn-dark:hover{
+    background:#181818;
+}
+
+/* SECTIONS */
+
+section{
+    padding:80px 20px;
+}
+
+.container{
+    max-width:1200px;
+    margin:auto;
+}
+
+.section-title{
+    text-align:center;
+    margin-bottom:50px;
+}
+
+.section-title h2{
+    font-size:36px;
+    color:var(--gold);
+    margin-bottom:10px;
+}
+
+.section-title p{
+    color:#999;
+}
+
+/* SERVICES */
+
+.services{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:20px;
+}
+
+.card{
+    background:linear-gradient(145deg,#121212,#0c0c0c);
+    border:1px solid var(--border);
+    border-radius:14px;
+    padding:28px;
+    transition:.3s;
+}
+
+.card:hover{
+    transform:translateY(-5px);
+    border-color:var(--gold);
+    box-shadow:0 10px 35px rgba(0,0,0,.4);
+}
+
+.icon{
+    font-size:35px;
+    margin-bottom:15px;
+}
+
+.card h3{
+    color:var(--gold);
+    margin-bottom:10px;
+    font-size:21px;
+}
+
+.card p{
+    color:#aaa;
+    font-size:14px;
+}
+
+/* PRICES */
+
+.price-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:20px;
+}
+
+.price-card{
+    background:#101010;
+    border:1px solid var(--border);
+    border-radius:14px;
+    padding:25px;
+}
+
+.price-card h3{
+    color:var(--gold);
+    margin-bottom:20px;
+}
+
+.price{
+    padding:10px 0;
+    border-bottom:1px solid #242424;
+    display:flex;
+    justify-content:space-between;
+    gap:10px;
+}
+
+.price strong{
+    color:#fff;
+}
+
+.price span{
+    color:var(--gold2);
+    font-weight:bold;
+}
+
+/* PROCESS */
+
+.process{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:20px;
+}
+
+.step{
+    text-align:center;
+    padding:25px 15px;
+}
+
+.number{
+    width:55px;
+    height:55px;
+    margin:0 auto 15px;
+    border:2px solid var(--gold);
+    color:var(--gold);
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-weight:bold;
+    font-size:20px;
+}
+
+.step h3{
+    margin-bottom:8px;
+}
+
+.step p{
+    color:#999;
+    font-size:14px;
+}
+
+/* WHY */
+
+.why{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:20px;
+}
+
+.why-box{
+    padding:25px;
+    background:#101010;
+    border-left:3px solid var(--gold);
+    border-radius:8px;
+}
+
+.why-box h3{
+    color:var(--gold);
+    margin-bottom:8px;
+}
+
+.why-box p{
+    color:#aaa;
+}
+
+/* FORM */
+
+.form-box{
+    max-width:800px;
+    margin:auto;
+    background:#101010;
+    border:1px solid var(--border);
+    border-radius:15px;
+    padding:30px;
+}
+
+.form-row{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:15px;
+}
+
+input,
+select,
+textarea{
+    width:100%;
+    background:#080808;
+    border:1px solid #292929;
+    color:#fff;
+    padding:14px;
+    border-radius:7px;
+    margin-bottom:15px;
+    outline:none;
+}
+
+input:focus,
+select:focus,
+textarea:focus{
+    border-color:var(--gold);
+}
+
+textarea{
+    min-height:140px;
+    resize:vertical;
+}
+
+label{
+    display:block;
+    color:#bbb;
+    font-size:13px;
+    margin-bottom:6px;
+}
+
+/* LEGAL */
+
+.legal{
+    background:#0b0b0b;
+}
+
+.legal-box{
+    max-width:950px;
+    margin:auto;
+    background:#101010;
+    border:1px solid var(--border);
+    border-radius:15px;
+    padding:30px;
+}
+
+.legal-box h3{
+    color:var(--gold);
+    margin:22px 0 8px;
+}
+
+.legal-box h3:first-child{
+    margin-top:0;
+}
+
+.legal-box p,
+.legal-box li{
+    color:#aaa;
+    font-size:14px;
+}
+
+.legal-box ul{
+    padding-left:20px;
+}
+
+.warning{
+    margin-top:25px;
+    padding:18px;
+    border:1px solid #594b20;
+    background:#15130d;
+    border-radius:8px;
+    color:#d9c98a;
+}
+
+/* CONTACT */
+
+.contact{
+    text-align:center;
+}
+
+.contact-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:20px;
+    max-width:800px;
+    margin:auto;
+}
+
+.contact-card{
+    background:#101010;
+    border:1px solid var(--border);
+    border-radius:12px;
+    padding:25px;
+}
+
+.contact-card .big{
+    font-size:30px;
+    margin-bottom:10px;
+}
+
+.contact-card h3{
+    color:var(--gold);
+    margin-bottom:7px;
+}
+
+.contact-card p{
+    color:#bbb;
+}
+
+/* FOOTER */
+
+footer{
+    border-top:1px solid var(--border);
+    padding:30px 20px;
+    text-align:center;
+    background:#050505;
+    color:#777;
+    font-size:13px;
+}
+
+footer strong{
+    color:var(--gold);
+}
+
+/* WHATSAPP */
+
+.whatsapp{
+    position:fixed;
+    right:20px;
+    bottom:20px;
+    z-index:2000;
+    background:#25D366;
+    color:#fff;
+    padding:13px 18px;
+    border-radius:30px;
+    font-weight:bold;
+    box-shadow:0 8px 25px rgba(0,0,0,.5);
+}
+
+/* MOBILE */
+
+@media(max-width:900px){
+
+    nav{
+        display:none;
+    }
+
+    .services,
+    .price-grid{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .process{
+        grid-template-columns:1fr 1fr;
+    }
+}
+
+@media(max-width:600px){
+
+    .nav{
+        padding:12px 15px;
+    }
+
+    .logo-mark{
+        width:44px;
+        height:44px;
+        font-size:24px;
+    }
+
+    .logo-text{
+        font-size:15px;
+    }
+
+    .hero{
+        min-height:600px;
+        padding:70px 18px;
+    }
+
+    .hero-logo{
+        width:105px;
+        height:105px;
+        font-size:57px;
+    }
+
+    section{
+        padding:60px 15px;
+    }
+
+    .services,
+    .price-grid,
+    .process,
+    .why,
+    .contact-grid,
+    .form-row{
+        grid-template-columns:1fr;
+    }
+
+    .section-title h2{
+        font-size:29px;
+    }
+
+    .whatsapp{
+        right:12px;
+        bottom:12px;
+        font-size:13px;
+        padding:11px 15px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="nav">
+
+        <a href="#" class="logo">
+            <div class="logo-mark">X?</div>
+            <div class="logo-text">
+                X? ARAŞTIRMA
+                <span>ÖZEL DEDEKTİFLİK</span>
+            </div>
+        </a>
+
+        <nav>
+            <a href="#hizmetler">Hizmetler</a>
+            <a href="#fiyatlar">Fiyatlar</a>
+            <a href="#surec">Süreç</a>
+            <a href="#basvuru">Başvuru</a>
+            <a href="#iletisim">İletişim</a>
+        </nav>
+
+    </div>
+</header>
+
+
+<!-- HERO -->
+
+<section class="hero">
+
+    <div class="hero-content">
+
+        <div class="hero-logo">X?</div>
+
+        <h1><span>X?</span> ARAŞTIRMA</h1>
+
+        <h2>Soruların Ardındaki Gerçek.</h2>
+
+        <p>
+            Özel araştırma ve danışmanlık hizmetlerinde
+            gizlilik, dikkat ve hukuka uygun çalışma prensibi.
+        </p>
+
+        <div class="buttons">
+            <a href="#basvuru" class="btn btn-gold">Başvuru Oluştur</a>
+            <a href="#hizmetler" class="btn btn-dark">Hizmetleri İncele</a>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- SERVICES -->
+
+<section id="hizmetler">
+
+<div class="container">
+
+    <div class="section-title">
+        <h2>Hizmetlerimiz</h2>
+        <p>İhtiyacınıza uygun araştırma ve danışmanlık seçenekleri.</p>
+    </div>
+
+    <div class="services">
+
+        <div class="card">
+            <div class="icon">🕵️</div>
+            <h3>Eş / Partner Şüphesi</h3>
+            <p>
+                Şüphe ve endişelerin hukuka uygun araştırma yöntemleri
+                çerçevesinde değerlendirilmesi.
+            </p>
+        </div>
+
+        <div class="card">
+            <div class="icon">💍</div>
+            <h3>Evlilik Öncesi Araştırma</h3>
+            <p>
+                Evlilik öncesinde karar vermenize yardımcı olabilecek
+                yasal araştırma ve danışmanlık hizmetleri.
+            </p>
+        </div>
+
+        <div class="card">
+            <div class="icon">⚖️</div>
+            <h3>Dava Araştırmaları</h3>
+            <p>
+                Hukuka uygun açık kaynak, olay ve belge araştırması
+                ile raporlama desteği.
+            </p>
+        </div>
+
+        <div class="card">
+            <div class="icon">👨‍👩‍👧</div>
+            <h3>Çocuk Güvenliği</h3>
+            <p>
+                Çocuğun çevresi ve güvenliği hakkında hukuka uygun
+                risk değerlendirmesi ve araştırma desteği.
+            </p>
+        </div>
+
+        <div class="card">
+            <div class="icon">🔎</div>
+            <h3>Kayıp / Kişi Araştırması</h3>
+            <p>
+                Kişi araştırmalarında hukuka uygun kaynaklar üzerinden
+                bilgi toplama ve araştırma desteği.
+            </p>
+        </div>
+
+        <div class="card">
+            <div class="icon">📁</div>
+            <h3>Özel Dosya</h3>
+            <p>
+                Standart hizmetlerin dışında kalan araştırmalar için
+                ön görüşme ve özel teklif.
+            </p>
+        </div>
+
+    </div>
+
+</div>
+
+</section>
+
+
+<!-- PRICES -->
+
+<section id="fiyatlar">
+
+<div class="container">
+
+    <div class="section-title">
+        <h2>Hizmet Fiyatları</h2>
+        <p>Başlangıç fiyatlarımız aşağıdaki gibidir.</p>
+    </div>
+
+    <div class="price-grid">
+
+        <div class="price-card">
+            <h3>🕵️ Eş / Partner Şüphesi</h3>
+
+            <div class="price">
+                <strong>Saatlik</strong>
+                <span>2.000 TL</span>
+            </div>
+
+            <div class="price">
+                <strong>Günlük</strong>
+                <span>12.000 TL</span>
+            </div>
+
+            <div class="price">
+                <strong>3 Gün</strong>
+                <span>30.000 TL</span>
+            </div>
+        </div>
+
+
+        <div class="price-card">
+            <h3>💍 Evlilik Öncesi</h3>
+
+            <div class="price">
+                <strong>Saatlik</strong>
+                <span>1.500 TL</span>
+            </div>
+
+            <div class="price">
+                <strong>Günlük</strong>
+                <span>8.000 TL</span>
+            </div>
+
+            <div class="price">
+                <strong>3 Gün</strong>
+                <span>20.000 TL</span>
+            </div>
+        </div>
+
+
+        <div class="price-card">
+            <h3>⚖️ Dava Araştırmaları</h3>
+
+            <div class="price">
+                <strong>Saatlik</strong>
+                <span>2.000 TL</span>
+            </div>
+
+            <div class="price">
+                <strong>Günlük</strong>
+                <span>12.500 TL</span>
+            </div>
+
+            <div class="price">
+                <strong>3 Gün</strong>
+                <span>30.000 TL</span>
+            </div>
+        </div>
+
+
+        <div class="price-card">
+            <h3>👨‍👩‍👧 Çocuk Güvenliği</h3>
+
+            <div class="price">
+                <strong>Saatlik</strong>
+                <span>2.000 TL</span>
+            </div>
+
+            <div class="price">
+                <strong>Günlük</strong>
+                <span>10.000 TL</span>
+            </div>
+
+            <div class="price">
+                <strong>3 Gün</strong>
+                <span>25.000 TL</span>
+            </div>
+        </div>
+
+
+        <div class="price-card">
+            <h3>🔎 Kayıp / Kişi</h3>
+
+            <div class="price">
+                <strong>Saatlik</strong>
+                <span>1.500 TL</span>
+            </div>
+
+            <div class="price">
+                <strong>Günlük</strong>
+                <span>8.000 TL</span>
+            </div>
+
+            <div class="price">
+                <strong>3 Gün</strong>
+                <span>20.000 TL</span>
+            </div>
+        </div>
+
+
+        <div class="price-card">
+            <h3>📁 Özel Dosya</h3>
+
+            <div style="padding-top:15px;color:#aaa;">
+                Kapsamlı ve özel araştırmalar için
+                dosyanın niteliğine göre teklif hazırlanır.
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+</section>
+
+
+<!-- PROCESS -->
+
+<section id="surec">
+
+<div class="container">
+
+    <div class="section-title">
+        <h2>Nasıl Çalışıyoruz?</h2>
+        <p>Süreç boyunca açık ve kontrollü ilerleme.</p>
+    </div>
+
+    <div class="process">
+
+        <div class="step">
+            <div class="number">1</div>
+            <h3>Başvuru</h3>
+            <p>Talebinizi ve araştırma konusunu bize iletirsiniz.</p>
+        </div>
+
+        <div class="step">
+            <div class="number">2</div>
+            <h3>Ön Görüşme</h3>
+            <p>Dosyanın kapsamı ve uygulanabilecek yöntemler değerlendirilir.</p>
+        </div>
+
+        <div class="step">
+            <div class="number">3</div>
+            <h3>Araştırma</h3>
+            <p>Yasal sınırlar içinde araştırma ve bilgi toplama gerçekleştirilir.</p>
+        </div>
+
+        <div class="step">
+            <div class="number">4</div>
+            <h3>Raporlama</h3>
+            <p>Elde edilen hukuka uygun bulgular düzenli şekilde raporlanır.</p>
+        </div>
+
+    </div>
+
+</div>
+
+</section>
+
+
+<!-- WHY -->
+
+<section>
+
+<div class="container">
+
+    <div class="section-title">
+        <h2>Neden X?</h2>
+        <p>Çalışma prensiplerimiz.</p>
+    </div>
+
+    <div class="why">
+
+        <div class="why-box">
+            <h3>🔒 Gizlilik</h3>
+            <p>
+                Başvuru ve dosya bilgilerinin gizliliğine önem verilir.
+            </p>
+        </div>
+
+        <div class="why-box">
+            <h3>⚖️ Hukuka Uygunluk</h3>
+            <p>
+                Araştırmalar yalnızca hukuka uygun yöntemler ve
+                izin verilen kaynaklar çerçevesinde yürütülür.
+            </p>
+        </div>
+
+        <div class="why-box">
+            <h3>📋 Raporlama</h3>
+            <p>
+                Uygun dosyalarda araştırma süreci ve elde edilen
+                hukuka uygun bilgiler raporlanabilir.
+            </p>
+        </div>
+
+        <div class="why-box">
+            <h3>🎯 Şeffaf Süreç</h3>
+            <p>
+                Hizmet kapsamı ve fiyatlandırma ön görüşmede açıkça
+                değerlendirilir.
+            </p>
+        </div>
+
+    </div>
+
+</div>
+
+</section>
+
+
+<!-- APPLICATION -->
+
+<section id="basvuru">
+
+<div class="container">
+
+    <div class="section-title">
+        <h2>Başvuru Formu</h2>
+        <p>Talebinizi kısaca anlatın, ön görüşme için sizinle iletişime geçelim.</p>
+    </div>
+
+    <div class="form-box">
+
+        <form onsubmit="gonder(event)">
+
+            <div class="form-row">
+
+                <div>
+                    <label>Ad Soyad</label>
+                    <input type="text" id="ad" required>
+                </div>
+
+                <div>
+                    <label>Telefon</label>
+                    <input type="tel" id="telefon" required>
+                </div>
+
+            </div>
+
+            <label>Hizmet Türü</label>
+
+            <select id="hizmet" required>
+                <option value="">Seçiniz</option>
+                <option>Eş / Partner Şüphesi</option>
+                <option>Evlilik Öncesi Araştırma</option>
+                <option>Dava Araştırmaları</option>
+                <option>Çocuk Güvenliği ve Çevre Araştırması</option>
+                <option>Kayıp Kişi / Kişi Araştırması</option>
+                <option>Özel Dosya</option>
+            </select>
+
+            <label>Talebiniz</label>
+
+            <textarea id="mesaj" required
+                placeholder="Araştırma talebinizi mümkün olduğunca genel şekilde açıklayın. Gereksiz kişisel veya hassas bilgi paylaşmayın."></textarea>
+
+            <button type="submit" class="btn btn-gold" style="width:100%;">
+                WhatsApp Üzerinden Başvur
+            </button>
+
+        </form>
+
+    </div>
+
+</div>
+
+</section>
+
+
+<!-- LEGAL -->
+
+<section class="legal">
+
+<div class="container">
+
+    <div class="section-title">
+        <h2>Yasal Hizmet Sınırları</h2>
+        <p>Güvenilir hizmet için hukuka uygunluk temel prensibimizdir.</p>
+    </div>
+
+    <div class="legal-box">
+
+        <h3>Sunulmayan İşlemler</h3>
+
+        <ul>
+            <li>Yetkisiz hesap veya cihaz erişimi</li>
+            <li>Şifre kırma veya hesap ele geçirme</li>
+            <li>Yetkisiz gizli dinleme veya kayıt</li>
+            <li>Özel alana izinsiz giriş</li>
+            <li>Yasa dışı yollarla kişisel veri temini</li>
+            <li>Kolluk kuvveti veya kamu görevlisi gibi davranma</li>
+        </ul>
+
+
+        <h3>Çocuk Güvenliği</h3>
+
+        <p>
+            Çocuk güvenliği araştırmalarında yalnızca hukuka uygun
+            çevre ve risk değerlendirmesi yapılır. Sağlık verileri,
+            uyuşturucu kullanımı gibi hassas kişisel veriler özelinde
+            hukuka aykırı veri toplama veya gizli test hizmeti sunulmaz.
+        </p>
+
+
+        <h3>Dava Araştırmaları</h3>
+
+        <p>
+            Araştırmalar hukuka uygun açık kaynak, belge ve olay
+            araştırması kapsamında değerlendirilir. Hukuka aykırı
+            delil elde etme veya gizli kayıt hizmeti sunulmaz.
+        </p>
+
+
+        <div class="warning">
+            <strong>Önemli:</strong>
+            X? hizmet kapsamı her dosya için ön görüşmede değerlendirilir.
+            Hukuka aykırı olduğu değerlendirilen talepler kabul edilmez.
+        </div>
+
+    </div>
+
+</div>
+
+</section>
+
+
+<!-- CONTACT -->
+
+<section id="iletisim" class="contact">
+
+<div class="container">
+
+    <div class="section-title">
+        <h2>İletişim</h2>
+        <p>Ön görüşme için bizimle iletişime geçebilirsiniz.</p>
+    </div>
+
+    <div class="contact-grid">
+
+        <a class="contact-card" href="tel:+905074163605">
+
+            <div class="big">📞</div>
+
+            <h3>Telefon</h3>
+
+            <p>0507 416 36 05</p>
+
+        </a>
+
+
+        <a class="contact-card"
+           href="https://wa.me/905074163605"
+           target="_blank">
+
+            <div class="big">💬</div>
+
+            <h3>WhatsApp</h3>
+
+            <p>WhatsApp üzerinden iletişime geç</p>
+
+        </a>
+
+    </div>
+
+</div>
+
+</section>
+
+
+<!-- FOOTER -->
+
+<footer>
+
+    <p>
+        <strong>X? ÖZEL DEDEKTİFLİK VE ARAŞTIRMA</strong>
+    </p>
+
+    <p>
+        Soruların Ardındaki Gerçek.
+    </p>
+
+    <p style="margin-top:10px;">
+        © 2026 X? Araştırma. Tüm hakları saklıdır.
+    </p>
+
+    <p style="margin-top:8px;">
+        Bu web sitesindeki hizmet açıklamaları genel bilgilendirme
+        amaçlıdır. Hizmet kapsamı ve hukuki uygunluk dosya bazında değerlendirilir.
+    </p>
+
+</footer>
+
+
+<a class="whatsapp"
+   href="https://wa.me/905074163605"
+   target="_blank">
+   💬 WhatsApp
+</a>
+
+
+<script>
+
+function gonder(event){
+
+    event.preventDefault();
+
+    const ad = document.getElementById("ad").value;
+    const telefon = document.getElementById("telefon").value;
+    const hizmet = document.getElementById("hizmet").value;
+    const mesaj = document.getElementById("mesaj").value;
+
+    const text =
+        "X? Araştırma Başvurusu%0A%0A" +
+        "Ad Soyad: " + encodeURIComponent(ad) + "%0A" +
+        "Telefon: " + encodeURIComponent(telefon) + "%0A" +
+        "Hizmet: " + encodeURIComponent(hizmet) + "%0A" +
+        "Talep: " + encodeURIComponent(mesaj);
+
+    window.open(
+        "https://wa.me/905074163605?text=" + text,
+        "_blank"
+    );
+}
+
+</script>
+
+</body>
+</html>
