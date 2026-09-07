@@ -202,6 +202,38 @@ nav a:hover{
     background:#181818;
 }
 
+/* ZIYARETCI SAYACI */
+
+.visitor-box{
+    max-width:500px;
+    margin:35px auto 0;
+    padding:18px 25px;
+    background:rgba(16,16,16,.95);
+    border:1px solid var(--border);
+    border-radius:14px;
+    box-shadow:0 0 25px rgba(212,175,55,.08);
+}
+
+.visitor-title{
+    color:#aaa;
+    font-size:13px;
+    letter-spacing:1px;
+    margin-bottom:4px;
+}
+
+.visitor-number{
+    color:var(--gold);
+    font-size:32px;
+    font-weight:900;
+    letter-spacing:2px;
+}
+
+.visitor-sub{
+    color:#777;
+    font-size:11px;
+    margin-top:3px;
+}
+
 /* SECTIONS */
 
 section{
@@ -565,6 +597,10 @@ footer strong{
     .section-title h2{
         font-size:29px;
     }
+
+    .visitor-number{
+        font-size:27px;
+    }
 }
 </style>
 </head>
@@ -614,6 +650,24 @@ footer strong{
         <div class="buttons">
             <a href="#basvuru" class="btn btn-gold">Başvuru Oluştur</a>
             <a href="#hizmetler" class="btn btn-dark">Hizmetleri İncele</a>
+        </div>
+
+        <!-- ZIYARETCI SAYACI -->
+
+        <div class="visitor-box">
+
+            <div class="visitor-title">
+                👁️ SİTE ZİYARETÇİLERİ
+            </div>
+
+            <div class="visitor-number" id="visitorCount">
+                Yükleniyor...
+            </div>
+
+            <div class="visitor-sub">
+                Toplam ziyaret
+            </div>
+
         </div>
 
     </div>
@@ -1093,24 +1147,153 @@ footer strong{
 
 <script>
 
+/* =========================================
+   ZİYARETÇİ SAYACI
+   ========================================= */
+
+const VISITOR_KEY =
+    "x_arastirma_ozel_dedektiflik_2026_ziyaretci_7f3a9";
+
+const VISITOR_STORAGE =
+    "x_arastirma_last_visit";
+
+async function ziyaretciSay(){
+
+    const sayac =
+        document.getElementById("visitorCount");
+
+    try{
+
+        const simdi = Date.now();
+
+        const sonZiyaret =
+            localStorage.getItem(VISITOR_STORAGE);
+
+        let say = false;
+
+        if(!sonZiyaret){
+
+            say = true;
+
+        }else{
+
+            const fark =
+                simdi - Number(sonZiyaret);
+
+            const birGun =
+                24 * 60 * 60 * 1000;
+
+            if(fark >= birGun){
+                say = true;
+            }
+
+        }
+
+        let url;
+
+        if(say){
+
+            url =
+                "https://countapi.mileshilliard.com/api/v1/hit/" +
+                VISITOR_KEY;
+
+        }else{
+
+            url =
+                "https://countapi.mileshilliard.com/api/v1/get/" +
+                VISITOR_KEY;
+
+        }
+
+        const cevap =
+            await fetch(url,{
+                cache:"no-store"
+            });
+
+        if(!cevap.ok){
+            throw new Error("Sayaç bağlantısı başarısız.");
+        }
+
+        const veri =
+            await cevap.json();
+
+        const toplam =
+            Number(veri.value);
+
+        if(!Number.isFinite(toplam)){
+            throw new Error("Sayaç verisi geçersiz.");
+        }
+
+        sayac.textContent =
+            toplam.toLocaleString("tr-TR");
+
+        if(say){
+
+            localStorage.setItem(
+                VISITOR_STORAGE,
+                String(simdi)
+            );
+
+        }
+
+    }catch(hata){
+
+        console.error(
+            "Ziyaretçi sayacı:",
+            hata
+        );
+
+        sayac.textContent =
+            "—";
+
+    }
+
+}
+
+ziyaretciSay();
+
+
+/* =========================================
+   BAŞVURU FORMU
+   ========================================= */
+
 function gonder(event){
 
     event.preventDefault();
 
-    const ad = document.getElementById("ad").value;
-    const telefon = document.getElementById("telefon").value;
-    const hizmet = document.getElementById("hizmet").value;
-    const mesaj = document.getElementById("mesaj").value;
+    const ad =
+        document.getElementById("ad").value;
 
-    const konu = encodeURIComponent("X? Araştırma Başvurusu - " + hizmet);
+    const telefon =
+        document.getElementById("telefon").value;
 
-    const govde = encodeURIComponent(
-        "X? Araştırma Başvurusu\n\n" +
-        "Ad Soyad: " + ad + "\n" +
-        "Telefon: " + telefon + "\n" +
-        "Hizmet: " + hizmet + "\n\n" +
-        "Talep:\n" + mesaj
-    );
+    const hizmet =
+        document.getElementById("hizmet").value;
+
+    const mesaj =
+        document.getElementById("mesaj").value;
+
+    const konu =
+        encodeURIComponent(
+            "X? Araştırma Başvurusu - " +
+            hizmet
+        );
+
+    const govde =
+        encodeURIComponent(
+            "X? Araştırma Başvurusu\n\n" +
+            "Ad Soyad: " +
+            ad +
+            "\n" +
+            "Telefon: " +
+            telefon +
+            "\n" +
+            "Hizmet: " +
+            hizmet +
+            "\n\n" +
+            "Talep:\n" +
+            mesaj
+        );
 
     window.location.href =
         "mailto:skaynar578@gmail.com?subject=" +
