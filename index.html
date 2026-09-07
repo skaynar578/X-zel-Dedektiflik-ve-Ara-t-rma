@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="tr">
 <head>
@@ -463,7 +462,7 @@ label{
 
 .contact-grid{
     display:grid;
-    grid-template-columns:repeat(2,1fr);
+    grid-template-columns:1fr;
     gap:20px;
     max-width:800px;
     margin:auto;
@@ -503,21 +502,6 @@ footer{
 
 footer strong{
     color:var(--gold);
-}
-
-/* WHATSAPP */
-
-.whatsapp{
-    position:fixed;
-    right:20px;
-    bottom:20px;
-    z-index:2000;
-    background:#25D366;
-    color:#fff;
-    padding:13px 18px;
-    border-radius:30px;
-    font-weight:bold;
-    box-shadow:0 8px 25px rgba(0,0,0,.5);
 }
 
 /* MOBILE */
@@ -580,13 +564,6 @@ footer strong{
 
     .section-title h2{
         font-size:29px;
-    }
-
-    .whatsapp{
-        right:12px;
-        bottom:12px;
-        font-size:13px;
-        padding:11px 15px;
     }
 }
 </style>
@@ -990,7 +967,7 @@ footer strong{
                 placeholder="Araştırma talebinizi mümkün olduğunca genel şekilde açıklayın. Gereksiz kişisel veya hassas bilgi paylaşmayın."></textarea>
 
             <button type="submit" class="btn btn-gold" style="width:100%;">
-                WhatsApp Üzerinden Başvur
+                E-posta Üzerinden Başvur
             </button>
 
         </form>
@@ -1067,46 +1044,22 @@ footer strong{
 
     <div class="section-title">
         <h2>İletişim</h2>
-        <p>Ön görüşme için bizimle iletişime geçebilirsiniz.</p>
+        <p>Ön görüşme için e-posta üzerinden bizimle iletişime geçebilirsiniz.</p>
     </div>
 
     <div class="contact-grid">
 
-        <a class="contact-card" href="tel:+905074163605">
-
-            <div class="big">📞</div>
-
-            <h3>Telefon</h3>
-
-            <p>0507 416 36 05</p>
-
-        </a>
-
-
         <a class="contact-card"
-           href="https://wa.me/905074163605"
-           target="_blank">
+           href="mailto:skaynar578@gmail.com">
 
-            <div class="big">💬</div>
+            <div class="big">📧</div>
 
-            <h3>WhatsApp</h3>
+            <h3>E-posta</h3>
 
-            <p>WhatsApp üzerinden iletişime geç</p>
+            <p>skaynar578@gmail.com</p>
 
         </a>
 
-<a class="contact-card"
-   href="mailto:skaynar578@gmail.com">
-
-    <div class="big">📧</div>
-
-    <h3>E-posta</h3>
-
-    <p>skaynar578@gmail.com</p>
-
-</a>
-
-        
     </div>
 
 </div>
@@ -1138,13 +1091,6 @@ footer strong{
 </footer>
 
 
-<a class="whatsapp"
-   href="https://wa.me/905074163605"
-   target="_blank">
-   💬 WhatsApp
-</a>
-
-
 <script>
 
 function gonder(event){
@@ -1156,17 +1102,21 @@ function gonder(event){
     const hizmet = document.getElementById("hizmet").value;
     const mesaj = document.getElementById("mesaj").value;
 
-    const text =
-        "X? Araştırma Başvurusu%0A%0A" +
-        "Ad Soyad: " + encodeURIComponent(ad) + "%0A" +
-        "Telefon: " + encodeURIComponent(telefon) + "%0A" +
-        "Hizmet: " + encodeURIComponent(hizmet) + "%0A" +
-        "Talep: " + encodeURIComponent(mesaj);
+    const konu = encodeURIComponent("X? Araştırma Başvurusu - " + hizmet);
 
-    window.open(
-        "https://wa.me/905074163605?text=" + text,
-        "_blank"
+    const govde = encodeURIComponent(
+        "X? Araştırma Başvurusu\n\n" +
+        "Ad Soyad: " + ad + "\n" +
+        "Telefon: " + telefon + "\n" +
+        "Hizmet: " + hizmet + "\n\n" +
+        "Talep:\n" + mesaj
     );
+
+    window.location.href =
+        "mailto:skaynar578@gmail.com?subject=" +
+        konu +
+        "&body=" +
+        govde;
 }
 
 </script>
